@@ -64,7 +64,7 @@ namespace OODProject_2_.UI
                 this.Controls.Add(new IIMenuPanel(this));
             else
                 this.Controls.Add(new OIMenuPanel(this));
-
+            
             this.Controls.Add(confirmPanel);
             confirmPanel.Hide();
         }
@@ -77,7 +77,10 @@ namespace OODProject_2_.UI
 
         public void ChangeMainPanel(MainPanel mp)
         {
-            this.Controls.RemoveByKey("D");
+            while (this.Controls.ContainsKey("D"))
+            {
+                this.Controls.RemoveByKey("D");
+            }
             mp.Name = "D";
             this.Controls.Add(mp);
         }
@@ -85,6 +88,7 @@ namespace OODProject_2_.UI
         public static void Confirm(String msg)
         {
             confirmPanel.Show();
+            confirmPanel.Name = "D";
             confirmPanel.setMsg(msg);
         }
     }

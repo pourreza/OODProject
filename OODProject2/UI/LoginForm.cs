@@ -44,7 +44,8 @@ namespace OODProject_2_.UI
             {
                 errorLable.Hide();
                 this.Hide();
-                UserForm form2 = new UserForm(new Dashboard("IA", Users.UserFacade.GetUserGender(usernameTextBox.Text), Users.UserFacade.GetUserFullName(usernameTextBox.Text)), "زیرسامانه برنامه ریزی مدیریت محیطی", usernameTextBox.Text, "IA");
+                Dashboard d = new Dashboard("IA", Users.UserFacade.GetUserGender(usernameTextBox.Text), Users.UserFacade.GetUserFullName(usernameTextBox.Text));
+                UserForm form2 = new UserForm(d, "زیرسامانه برنامه ریزی مدیریت محیطی", usernameTextBox.Text, "IA");
                 form2.ShowDialog();
                 this.Close();
             }
@@ -52,7 +53,8 @@ namespace OODProject_2_.UI
             {
                 errorLable.Hide();
                 this.Hide();
-                UserForm form2 = new UserForm(new Dashboard("I", Users.UserFacade.GetUserGender(usernameTextBox.Text), Users.UserFacade.GetUserFullName(usernameTextBox.Text)), "زیرسامانه حسابرسی و بازرسی", usernameTextBox.Text, "II");
+                Dashboard d = new Dashboard("I", Users.UserFacade.GetUserGender(usernameTextBox.Text), Users.UserFacade.GetUserFullName(usernameTextBox.Text));
+                UserForm form2 = new UserForm(d , "زیرسامانه حسابرسی و بازرسی", usernameTextBox.Text, "II");
                 form2.ShowDialog();
                 this.Close();
             }
@@ -60,7 +62,8 @@ namespace OODProject_2_.UI
             {
                 errorLable.Hide();
                 this.Hide();
-                UserForm form2 = new UserForm(new Dashboard("I", Users.UserFacade.GetUserGender(usernameTextBox.Text), Users.UserFacade.GetUserFullName(usernameTextBox.Text)), "زیرسامانه حسابرسی و بازرسی", usernameTextBox.Text, "OI");
+                Dashboard d = new Dashboard("I", Users.UserFacade.GetUserGender(usernameTextBox.Text), Users.UserFacade.GetUserFullName(usernameTextBox.Text));
+                UserForm form2 = new UserForm(d, "زیرسامانه حسابرسی و بازرسی", usernameTextBox.Text, "OI");
                 form2.ShowDialog();
                 this.Close();
             }

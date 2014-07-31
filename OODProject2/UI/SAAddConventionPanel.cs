@@ -22,14 +22,14 @@ namespace OODProject_2_.UI
             headerLabel.Size = new Size(300, 15);
             InitializeComponent();
 
-            askContent.Text = "متن میثاق نامه";
-            askContent.Location = new Point(330, 30);
-            askContent.Size = new Size(50, 15);
+            askContent.Text = "متن میثاق نامه:";
+            askContent.Location = new Point(305, 30);
+            askContent.Size = new Size(70, 15);
 
-            content.Location = new Point(30, 30);
-            content.Size = new Size(280, 200);
+            content.Location = new Point(33, 32);
+            content.Size = new Size(270, 130);
 
-            registerButton.Location = new Point(240, 200);
+            registerButton.Location = new Point(230, 170);
             registerButton.Click += new System.EventHandler(this.onRegisterClick);
 
             this.Controls.Add(askContent);
@@ -47,6 +47,7 @@ namespace OODProject_2_.UI
             if (content.Text.Equals(""))
             {
                 errorLable.Text = "لطفا متن میثاق نامه را وارد کنید!";
+                errorLable.Location = new Point(190, 340);
                 errorLable.Show();
             }
             else

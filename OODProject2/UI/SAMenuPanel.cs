@@ -102,7 +102,7 @@ namespace OODProject_2_.UI
             legalRequirement.Items.Add(two);
             two1 = new ToolStripMenuItem("ثبت الزام زیست محیطی جدید");
             two.DropDownItems.Add(two1);
-            //          two1.Click += new System.EventHandler(this.two1_Click);
+            two1.Click += new System.EventHandler(this.two1_Click);
             two2 = new ToolStripMenuItem("مشاهده الزامات زیست محیطی");
             two.DropDownItems.Add(two2);
             //        two2.Click += new System.EventHandler(this.two2_Click);
@@ -117,7 +117,7 @@ namespace OODProject_2_.UI
             envImpact.Items.Add(three);
             three1 = new ToolStripMenuItem("ثبت تاثیر زیست محیطی جدید");
             three.DropDownItems.Add(three1);
-            //            three1.Click += new System.EventHandler(this.three1_Click);
+            three1.Click += new System.EventHandler(this.three1_Click);
             three2 = new ToolStripMenuItem("مشاهده تاثیرات زیست محیطی");
             three.DropDownItems.Add(three2);
             //          three2.Click += new System.EventHandler(this.three2_Click);
@@ -177,7 +177,7 @@ namespace OODProject_2_.UI
             contract.Items.Add(sev);
             sev1 = new ToolStripMenuItem("ثبت میثاق نامه جدید");
             sev.DropDownItems.Add(sev1);
-            //            sev1.Click += new System.EventHandler(this.sev1_Click);
+            sev1.Click += new System.EventHandler(this.sev1_Click);
             sev2 = new ToolStripMenuItem("مشاهده میثاق نامه ها");
             sev.DropDownItems.Add(sev2);
             //          sev2.Click += new System.EventHandler(this.sev2_Click);
@@ -237,15 +237,12 @@ namespace OODProject_2_.UI
                     u.ShowDialog();
                     uf.Close();
                 }
-
-                private void two1_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-
+        */
+        private void two1_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new SAAddLegalRequirementPanel());
+        }
+        /*
                 private void two2_Click(object sender, EventArgs e)
                 {
                     uf.Hide();
@@ -269,15 +266,12 @@ namespace OODProject_2_.UI
                     u.ShowDialog();
                     uf.Close();
                 }
-
-                private void three1_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-
+        */
+        private void three1_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new SAAddEnvironmentalImpactPanel());
+        }
+        /*
                 private void three2_Click(object sender, EventArgs e)
                 {
                     uf.Hide();
@@ -397,15 +391,12 @@ namespace OODProject_2_.UI
                     u.ShowDialog();
                     uf.Close();
                 }
-
-                private void sev1_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-
+        */
+        private void sev1_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new SAAddConventionPanel());
+        }
+        /*
                 private void sev2_Click(object sender, EventArgs e)
                 {
                     uf.Hide();

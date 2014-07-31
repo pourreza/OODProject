@@ -32,12 +32,6 @@ namespace OODProject_2_.UI
             info.Size = new Size(260, 18);
             this.Controls.Add(info);
 
-            envGoalChart.Location = new Point(60, 52);
-            envGoalChart.Size = new Size(270, 90);
-
-            metricChart.Location = new Point(60, 150);
-            metricChart.Size = new Size(270, 90);
-
             if (userType.Equals("SA"))
             {
                 // if user is Senior Authority
@@ -68,10 +62,8 @@ namespace OODProject_2_.UI
             headerLabel.Location = new Point(70, 10);
             headerLabel.Size = new Size(310, 18);
 
-            this.Controls.Add(metricChart);
-            this.Controls.Add(envGoalChart);
             envGoalChart.Hide();
-            if (userType != "I")
+            if (!userType.Equals("I"))
             {
                 string jsonDataGoal = "";
                 if (userType.Equals("SA"))
@@ -135,7 +127,7 @@ namespace OODProject_2_.UI
                 // Add point.
                 series.Points.Add(yValues2[i]);
             }
-
+            
         }
 
         private void Dashboard_Load(object sender, EventArgs e)

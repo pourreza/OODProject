@@ -101,7 +101,7 @@ namespace OODProject_2_.UI
 
             ToolStripMenuItem two = new ToolStripMenuItem("تعریف ساختار سازمانی");
             orgStructure.Items.Add(two);
-            //          two1 = new ToolStripMenuItem("ثبت جزء جدید");
+            two1 = new ToolStripMenuItem("ثبت جزء جدید");
             two.DropDownItems.Add(two1);
             //        two1.Click += new System.EventHandler(this.two1_Click);
             two2 = new ToolStripMenuItem("مشاهده ساختار سازمانی");

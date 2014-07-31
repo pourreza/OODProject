@@ -98,16 +98,22 @@ namespace OODProject_2_.UI
             if (title.Text.Equals(""))
             {
                 errorLable.Text = "لطفا عنوان الزام زیست محیطی را وارد کنید!";
+                errorLable.Location = new Point(165, 380);
+                errorLable.Size = new Size(250, 20);
                 errorLable.Show();
             }
             else if (fine.Text.Equals(""))
             {
                 errorLable.Text = "لطفا جریمه تخلف الزام زیست محیطی را وارد کنید!";
+                errorLable.Location = new Point(165, 380);
+                errorLable.Size = new Size(250, 20);
                 errorLable.Show();
             }
             else if (description.Text.Equals(""))
             {
                 errorLable.Text = "لطفا توضیحی از ماده قانونی الزام زیست محیطی را وارد کنید!";
+                errorLable.Location = new Point(115, 380);
+                errorLable.Size = new Size(300, 20);
                 errorLable.Show();
             }
             else
