@@ -2,7 +2,7 @@
 {
     partial class Dashboard
     {
-           /*
+           
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -27,6 +27,7 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
+        /// 
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
@@ -81,7 +82,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.metricChart);
             this.Controls.Add(this.envGoalChart);
-            this.Name = "Dashboard";
+            this.Name = "D";
             this.Size = new System.Drawing.Size(387, 247);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.Controls.SetChildIndex(this.envGoalChart, 0);
@@ -98,6 +99,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart envGoalChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart metricChart;
              
-            */
+            
     }
 }

@@ -14,7 +14,7 @@ namespace OODProject_2_.UI
         public ConfirmPanel()
         {
             InitializeComponent();
-            
+
             headerLabel.Font = new Font("Nazanin", 14, FontStyle.Bold);
             headerLabel.Location = new Point(30, 40);
             headerLabel.Size = new Size(340, 20);

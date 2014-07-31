@@ -83,6 +83,16 @@ namespace OODProject2.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoutImg {
+            get {
+                object obj = ResourceManager.GetObject("LogoutImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoutImg2 {
             get {
                 object obj = ResourceManager.GetObject("LogoutImg2", resourceCulture);

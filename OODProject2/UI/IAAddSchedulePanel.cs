@@ -17,13 +17,18 @@ namespace OODProject_2_.UI
         {
             headerLabel.Text = "ابتدا هدف مربوط به برنامه موردنظر خود را انتخاب کرده، سپس زمان بندی مسئولیت های آن\nرا مشخص کنید: ";
             headerLabel.Location = new Point(20, 10);
-            headerLabel.Size = new Size(350, 28); 
+            headerLabel.Size = new Size(350, 28);
             InitializeComponent();
 
-            //relatedGoal.SelectedIndexChanged += new System.EventHandler(relatedGoal_SelectedIndexChanged);
+            relatedGoal.SelectedIndexChanged += new System.EventHandler(relatedGoal_SelectedIndexChanged);
         }
 
         private void IAAddSchedulePanel_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void relatedGoal_SelectedIndexChanged(Object sender, EventArgs e)
         {
 
         }

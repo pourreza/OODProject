@@ -19,7 +19,7 @@ namespace OODProject_2_.UI
             InitializeComponent();
             registerButton = new Button();
             registerButton.Text = "ثبت";
-            
+
             registerButton.BackColor = Color.LightSkyBlue;
             registerButton.Size = new Size(70, 18);
             registerButton.Location = new Point(290, 180);
@@ -28,7 +28,7 @@ namespace OODProject_2_.UI
             errorLable.Location = new Point(110, 180);
             errorLable.Size = new Size(160, 20);
             errorLable.ForeColor = Color.Red;
-            
+
             errorLable.Hide();
             this.Controls.Add(errorLable);
         }

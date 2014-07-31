@@ -13,12 +13,10 @@ namespace OODProject_2_.UI
     public partial class UserForm : EMSForm
     {
         private Panel infoPanel;
-        private MainPanel mp;
-        private MenuPanel menu;
         private static ConfirmPanel confirmPanel = new ConfirmPanel();
         public string userName;
 
-        public UserForm(MainPanel m, string title, string userName)
+        public UserForm(Dashboard dashBoard, string title, string userName, string type)
         {
             InitializeComponent();
             this.Size = new Size(720, 520);
@@ -33,10 +31,10 @@ namespace OODProject_2_.UI
 
             Label welcome = new Label();
             welcome.Text = "شما با نام کاربری ";
-            welcome.Text +=userName;
+            welcome.Text += PersianClass.ToPersianNumber(userName);
             welcome.Text += " وارد سامانه شده اید.";
-            welcome.Location = new Point(507, 7);
-            welcome.Size = new Size(180, 18);
+            welcome.Location = new Point(460, 7);
+            welcome.Size = new Size(230, 18);
             welcome.Font = new Font("B Nazanin", 9);
 
             Label date = new Label();
@@ -56,19 +54,32 @@ namespace OODProject_2_.UI
 
             this.Controls.Add(infoPanel);
 
-            mp = m;
-            this.Controls.Add(mp);
+            this.Controls.Add(dashBoard);
 
-            menu = new SAMenuPanel(this);
-            this.Controls.Add(menu);
+            if (type.Equals("SA"))
+                this.Controls.Add(new SAMenuPanel(this));
+            else if (type.Equals("IA"))
+                this.Controls.Add(new IAMenuPanel(this));
+            else if (type.Equals("II"))
+                this.Controls.Add(new IIMenuPanel(this));
+            else
+                this.Controls.Add(new OIMenuPanel(this));
 
             this.Controls.Add(confirmPanel);
             confirmPanel.Hide();
         }
 
+
         private void UserForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public void ChangeMainPanel(MainPanel mp)
+        {
+            this.Controls.RemoveByKey("D");
+            mp.Name = "D";
+            this.Controls.Add(mp);
         }
 
         public static void Confirm(String msg)

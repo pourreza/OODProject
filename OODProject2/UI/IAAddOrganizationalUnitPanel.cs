@@ -19,7 +19,7 @@ namespace OODProject_2_.UI
         public IAAddOrganizationalUnitPanel(String unitNames)
         {
             headerLabel.Text = "لطفا واحد سازمانی جدید موردنظر خود را وارد کنید: ";
-            
+
             InitializeComponent();
 
             askName.Location = new Point(300, 50);
@@ -36,9 +36,9 @@ namespace OODProject_2_.UI
             Panel p = new Panel();
             p.AutoScroll = true;
             //p.BackColor = Color.AliceBlue;
-            p.Location = new Point(73,70);
-            p.Size = new Size(197,110);
-            
+            p.Location = new Point(73, 70);
+            p.Size = new Size(197, 110);
+
             Dictionary<int, string> names = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<int, string>>(unitNames);
             int i = 0;
             foreach (KeyValuePair<int, string> entry in names)

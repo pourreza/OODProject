@@ -11,6 +11,7 @@ namespace OODProject_2_.Users
         public string UserName { get; set; }
         public string PassWord { get; private set; }
         public Role Role { get; private set; }
+        public Boolean gender { get; private set; }
 
         public void Login()
         {

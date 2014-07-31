@@ -64,7 +64,7 @@ namespace OODProject_2_.UI
             MenuStrip metricDefine = new MenuStrip();
             MenuStrip metricAudit = new MenuStrip();
             MenuStrip logout = new MenuStrip();
-            logoutItem = new ToolStripMenuItem("خروج") { Image = OODProject2.Properties.Resources.LogoutImg2 };
+            logoutItem = new ToolStripMenuItem("خروج") { Image = OODProject2.Properties.Resources.LogoutImg };
             logoutItem.RightToLeft = RightToLeft.No;
             logout.Items.Add(logoutItem);
             logoutItem.Click += new System.EventHandler(this.logout_Click);
@@ -76,81 +76,81 @@ namespace OODProject_2_.UI
             menus.Add(opReport);
             menus.Add(phyReport);
             menus.Add(envAudit);
-            
+
             ToolStripMenuItem one = new ToolStripMenuItem("حسابرسی اهداف کلان");
             envAudit.Items.Add(one);
             one1 = new ToolStripMenuItem("ثبت حسابرسی جدید اهداف کلان");
             one.DropDownItems.Add(one1);
-            one1.Click += new System.EventHandler(this.one1_Click);
+            //  one1.Click += new System.EventHandler(this.one1_Click);
             one2 = new ToolStripMenuItem("مشاهده حسابرسی های اهداف کلان");
             one.DropDownItems.Add(one2);
-            one2.Click += new System.EventHandler(this.one2_Click);
+            // one2.Click += new System.EventHandler(this.one2_Click);
             one3 = new ToolStripMenuItem("ویرایش حسابرسی های اهداف کلان");
             one.DropDownItems.Add(one3);
-            one3.Click += new System.EventHandler(this.one3_Click);
+            // one3.Click += new System.EventHandler(this.one3_Click);
             one4 = new ToolStripMenuItem("حذف حسابرسی های اهداف کلان");
             one.DropDownItems.Add(one4);
-            one3.Click += new System.EventHandler(this.one3_Click);
+            //one4.Click += new System.EventHandler(this.one4_Click);
 
             ToolStripMenuItem two = new ToolStripMenuItem("گزارش بازرسی فیزیکی");
             phyReport.Items.Add(two);
             two1 = new ToolStripMenuItem("ثبت گزارش جدید بازرسی فیزیکی");
             two.DropDownItems.Add(two1);
-            two1.Click += new System.EventHandler(this.two1_Click);
+            //two1.Click += new System.EventHandler(this.two1_Click);
             two2 = new ToolStripMenuItem("مشاهده گزارشات بازرسی های فیزیکی");
             two.DropDownItems.Add(two2);
-            two2.Click += new System.EventHandler(this.two2_Click);
+            //two2.Click += new System.EventHandler(this.two2_Click);
             two3 = new ToolStripMenuItem("ویرایش گزارشات بازسی های فیزیکی");
             two.DropDownItems.Add(two3);
-            two3.Click += new System.EventHandler(this.two3_Click);
+            //two3.Click += new System.EventHandler(this.two3_Click);
             two4 = new ToolStripMenuItem("حذف گزارشات بازرسی های فیزیکی");
             two.DropDownItems.Add(two4);
-            two4.Click += new System.EventHandler(this.two4_Click);
+            //two4.Click += new System.EventHandler(this.two4_Click);
 
             ToolStripMenuItem three = new ToolStripMenuItem("گزارش بررسی اسناد عملکردی");
             opReport.Items.Add(three);
             three1 = new ToolStripMenuItem("ثبت گزارش جدید بررسی اسناد عملکردی");
             three.DropDownItems.Add(three1);
-            three1.Click += new System.EventHandler(this.three1_Click);
+            //three1.Click += new System.EventHandler(this.three1_Click);
             three2 = new ToolStripMenuItem("مشاهده گزارشات بررسی های اسناد عملکردی");
             three.DropDownItems.Add(three2);
-            three2.Click += new System.EventHandler(this.three2_Click);
+            //three2.Click += new System.EventHandler(this.three2_Click);
             three3 = new ToolStripMenuItem("ویرایش گزارشات بررسی های اسناد عملکردی");
             three.DropDownItems.Add(three3);
-            three3.Click += new System.EventHandler(this.three3_Click);
+            //three3.Click += new System.EventHandler(this.three3_Click);
             three4 = new ToolStripMenuItem("حذف گزارشات بررسی های اسناد عملکردی");
             three.DropDownItems.Add(three4);
-            three4.Click += new System.EventHandler(this.three4_Click);
+            //three4.Click += new System.EventHandler(this.three4_Click);
 
             ToolStripMenuItem four = new ToolStripMenuItem("تعریف متریک ها");
             metricDefine.Items.Add(four);
             four1 = new ToolStripMenuItem("ثبت متریک جدید");
             four.DropDownItems.Add(four1);
-            four1.Click += new System.EventHandler(this.four1_Click);
+            //four1.Click += new System.EventHandler(this.four1_Click);
             four2 = new ToolStripMenuItem("مشاهده متریک ها");
             four.DropDownItems.Add(four2);
-            four2.Click += new System.EventHandler(this.four2_Click);
+            //four2.Click += new System.EventHandler(this.four2_Click);
             four3 = new ToolStripMenuItem("ویرایش متریک ها");
             four.DropDownItems.Add(four3);
-            four3.Click += new System.EventHandler(this.four3_Click);
+            //four3.Click += new System.EventHandler(this.four3_Click);
             four4 = new ToolStripMenuItem("حذف متریک ها");
             four.DropDownItems.Add(four4);
-            four4.Click += new System.EventHandler(this.four4_Click);
+            //four4.Click += new System.EventHandler(this.four4_Click);
 
             ToolStripMenuItem five = new ToolStripMenuItem("ارزیابی براساس متریک ها");
             metricAudit.Items.Add(five);
             five1 = new ToolStripMenuItem("ثبت ارزیابی جدید");
             five.DropDownItems.Add(five1);
-            five1.Click += new System.EventHandler(this.five1_Click);
+            //five1.Click += new System.EventHandler(this.five1_Click);
             five2 = new ToolStripMenuItem("مشاهده ارزیابی ها ");
             five.DropDownItems.Add(five2);
-            five2.Click += new System.EventHandler(this.five2_Click);
+            //five2.Click += new System.EventHandler(this.five2_Click);
             five3 = new ToolStripMenuItem("ویرایش ارزیابی ها");
             five.DropDownItems.Add(five3);
-            five3.Click += new System.EventHandler(this.five3_Click);
+            //five3.Click += new System.EventHandler(this.five3_Click);
             five4 = new ToolStripMenuItem("حذف ارزیابی ها");
             five.DropDownItems.Add(five4);
-            five4.Click += new System.EventHandler(this.five4_Click);
+            //five4.Click += new System.EventHandler(this.five4_Click);
 
             MenuItems = menus;
 
@@ -164,7 +164,7 @@ namespace OODProject_2_.UI
 
 
 
-        private void one1_Click(object sender, EventArgs e)
+        /*private void one1_Click(object sender, EventArgs e)
         {
             uf.Hide();
             UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
@@ -411,7 +411,7 @@ namespace OODProject_2_.UI
             u.ShowDialog();
             uf.Close();
         }
-
+        */
         private void logout_Click(object sender, EventArgs e)
         {
             uf.Hide();

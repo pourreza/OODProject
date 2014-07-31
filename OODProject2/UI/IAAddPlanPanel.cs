@@ -19,18 +19,18 @@ namespace OODProject_2_.UI
         private List<CheckBox> resourcesList = new List<CheckBox>();
 
         private Boolean goalExists = false;
-        
+
         public IAAddPlanPanel(string opGoals, string resources, string resps)
         {
             headerLabel.Text = "برنامه اقدام مربوط به هدف اجرایی موردنظر خود را مشخص کنید: ";
             headerLabel.Location = new Point(120, 10);
-            headerLabel.Size = new Size(250, 18); 
+            headerLabel.Size = new Size(250, 18);
 
             InitializeComponent();
 
             askOpGoal.Text = "هدف اجرایی";
             askOpGoal.Location = new Point(310, 30);
-            askOpGoal.Size = new Size(60,20);
+            askOpGoal.Size = new Size(60, 20);
 
             relatedGoal.Location = new Point(140, 30);
             relatedGoal.Size = new Size(160, 7);
@@ -58,13 +58,13 @@ namespace OODProject_2_.UI
             p2.AutoScroll = true;
 
             Dictionary<int, string> ress = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<int, string>>(resps);
-            int k=0;
+            int k = 0;
             foreach (KeyValuePair<int, string> entry in ress)
             {
                 CheckBox c = new CheckBox();
                 c.Text = entry.Value;
                 c.Font = new Font("Nazanin", 10);
-                c.Location = new Point(0, k * 20+3);
+                c.Location = new Point(0, k * 20 + 3);
                 c.Size = new Size(130, 15);
                 responsibilities.Add(c);
                 p2.Controls.Add(c);
@@ -86,7 +86,7 @@ namespace OODProject_2_.UI
                 m++;
             }
             this.Controls.Add(p2);
-            
+
             askResource.Location = new Point(340, 60);
             askResource.Size = new Size(30, 20);
             askResource.Text = "منابع";
@@ -124,13 +124,14 @@ namespace OODProject_2_.UI
                     if (index.Checked)
                         j++;
 
-                if(relatedGoal.SelectedItem==null)
+                if (relatedGoal.SelectedItem == null)
                 {
                     errorLable.Text = "لطفا هدف اجرایی مربوطه را انتخاب کنید!";
                     errorLable.Show();
                     errorLable.Location = new Point(185, 380);
                     errorLable.Size = new Size(220, 20);
-                }else if (i==0)
+                }
+                else if (i == 0)
                 {
                     errorLable.Text = "لطفا مسئولیت های مربوطه را انتخاب کنید!";
                     errorLable.Show();
@@ -155,9 +156,10 @@ namespace OODProject_2_.UI
             {
                 errorLable.Show();
                 errorLable.Text = "ابتدا هدف اجرایی باید به ثبت برسد!";
-                errorLable.Location = new Point(210,380);
+                errorLable.Location = new Point(210, 380);
                 errorLable.Size = new Size(190, 20);
             }
         }
+
     }
 }

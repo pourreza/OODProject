@@ -21,7 +21,7 @@ namespace OODProject_2_.UI
         {
             headerLabel.Text = "لطفا هدف اجرایی جدید موردنظر خود را وارد کنید: ";
             InitializeComponent();
-            
+
             askTitle.Location = new Point(270, 70);
             askTitle.Text = "عنوان هدف اجرایی";
 
@@ -35,8 +35,7 @@ namespace OODProject_2_.UI
             date.Size = new Size(150, 15);
             string t = FarsiLibrary.Utils.PersianDate.Now.Year.ToString() + "/" + FarsiLibrary.Utils.PersianDate.Now.Month.ToString() + "/" + FarsiLibrary.Utils.PersianDate.Now.Day.ToString();
             date.Text = t;
-            //date.Text.
-            
+
             registerButton.Location = new Point(200, 150);
             registerButton.Click += new System.EventHandler(this.onRegisterClick);
             this.Controls.Add(askTitle);
@@ -53,7 +52,7 @@ namespace OODProject_2_.UI
         private void onRegisterClick(object sender, EventArgs e)
         {
             if (goalTitle.Text.Equals(""))
-            {   
+            {
                 errorLable.Text = "لطفا عنوان هدف اجرایی را وارد کنید!";
                 errorLable.Show();
             }
@@ -65,6 +64,6 @@ namespace OODProject_2_.UI
             }
         }
 
-       
+
     }
 }

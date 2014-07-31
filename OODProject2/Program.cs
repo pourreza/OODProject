@@ -126,7 +126,8 @@ namespace OODProject_2_
             goal.Add(2, "افزایش کارایی");
             string goals = JsonConvert.SerializeObject(goal);
             //Application.Run(new UI.UserForm(new UI.IAAddResponsibilityPanel(orgNames), "زیرسامانه حسابرسی سازمان", "مریم"));
-            Application.Run(new UI.UserForm(new UI.IAAddSchedulePanel(), "زیرسامانه حسابرسی سازمان", "مریم"));
+            //Application.Run(new UI.UserForm(new UI.IAAddSchedulePanel(), "زیرسامانه حسابرسی سازمان", "مریم"));
+            Application.Run(new UI.LoginForm());
 
         }
     }

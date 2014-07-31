@@ -13,7 +13,7 @@ namespace OODProject_2_.UI
     {
 
         private DataGridView content;
-        public DetailedViewPanel(String headerStr, String type)
+        public DetailedViewPanel(String headerStr)
         {
             headerLabel.Text = headerStr;
             InitializeComponent();

@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace OODProject_2_.UI
 {
     public partial class Dashboard : MainPanel
     {
         private string welcome;
-       
-        public Dashboard(String userType, Boolean gender, String fullName, String jsonDataGoal, String jsonDataMetric)
+        //private Chart envGoalChart = new Chart();
+        //private Chart metricChart = new Chart();
+
+        public Dashboard(String userType, Boolean gender, String fullName)//, String jsonDataGoal, String jsonDataMetric)
         {
-            /*
+
             InitializeComponent();
             if (gender == true) // if user is female
                 welcome = "کاربر گرامی سرکار خانم ";
@@ -28,6 +31,12 @@ namespace OODProject_2_.UI
             info.Location = new Point(120, 30);
             info.Size = new Size(260, 18);
             this.Controls.Add(info);
+
+            envGoalChart.Location = new Point(60, 52);
+            envGoalChart.Size = new Size(270, 90);
+
+            metricChart.Location = new Point(60, 150);
+            metricChart.Size = new Size(270, 90);
 
             if (userType.Equals("SA"))
             {
@@ -47,7 +56,7 @@ namespace OODProject_2_.UI
             {
                 // if user is Inspector
                 welcome += " به زیرسامانه حسابرسی و بازرسی خوش آمدید.";
-                info.Text ="نمودار زیر آخرین درصد اندازه گیری شده برای متریک ها را نشان می دهد:";
+                info.Text = "نمودار زیر آخرین درصد اندازه گیری شده برای متریک ها را نشان می دهد:";
                 info.Location = new Point(100, 30);
                 info.Size = new Size(280, 18);
                 metricChart.Location = new Point(49, 68);
@@ -58,9 +67,18 @@ namespace OODProject_2_.UI
             headerLabel.Text = welcome;
             headerLabel.Location = new Point(70, 10);
             headerLabel.Size = new Size(310, 18);
+
+            this.Controls.Add(metricChart);
+            this.Controls.Add(envGoalChart);
             envGoalChart.Hide();
             if (userType != "I")
             {
+                string jsonDataGoal = "";
+                if (userType.Equals("SA"))
+                    jsonDataGoal = Audits.AuditFacade.GetEnvironmentalGoalsAudit();
+                else
+                    jsonDataGoal = Audits.AuditFacade.GetOperationalGoalsAudit();
+
                 envGoalChart.Show();
                 Dictionary<string, int> goals = JsonConvert.DeserializeObject<Dictionary<string, int>>(jsonDataGoal);
                 List<int> y = new List<int>();
@@ -78,7 +96,6 @@ namespace OODProject_2_.UI
                 // Set palette.
                 this.envGoalChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
 
-                // Set title.
                 envGoalChart.Series.RemoveAt(0);
                 // Add series.
                 for (int i = 0; i < xValues.Length; i++)
@@ -90,6 +107,8 @@ namespace OODProject_2_.UI
                     series.Points.Add(yValues[i]);
                 }
             }
+
+            string jsonDataMetric = Audits.AuditFacade.GetMetricsAudit();
             Dictionary<string, int> metrics = JsonConvert.DeserializeObject<Dictionary<string, int>>(jsonDataMetric);
             List<int> y2 = new List<int>();
             List<string> x2 = new List<string>();
@@ -106,7 +125,6 @@ namespace OODProject_2_.UI
             // Set palette.
             this.metricChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
 
-            // Set title.
             metricChart.Series.RemoveAt(0);
             // Add series.
             for (int i = 0; i < xValues2.Length; i++)
@@ -117,12 +135,28 @@ namespace OODProject_2_.UI
                 // Add point.
                 series.Points.Add(yValues2[i]);
             }
-            
+
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-*/
+
         }
+        /*
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Dashboard
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.Location = new System.Drawing.Point(138, 22);
+            this.Name = "D";
+            this.Size = new System.Drawing.Size(387, 249);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
+            this.ResumeLayout(false);
+
+        }
+        */
     }
 }

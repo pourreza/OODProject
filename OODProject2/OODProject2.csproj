@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audits\AuditFacade.cs" />
     <Compile Include="Audits\OperationalScore.cs" />
     <Compile Include="Audits\PercentageScore.cs" />
     <Compile Include="Audits\PhysicalScore.cs" />
@@ -102,6 +103,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AddAssociationPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AddAssociationPanel.Designer.cs">
+      <DependentUpon>AddAssociationPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AddPanel.cs">
       <SubType>UserControl</SubType>
@@ -169,6 +176,18 @@
     <Compile Include="UI\IAAddSchedulePanel.Designer.cs">
       <DependentUpon>IAAddSchedulePanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\IAddMetricAuditPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\IAddMetricAuditPanel.Designer.cs">
+      <DependentUpon>IAddMetricAuditPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\IAddMetricPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\IAddMetricPanel.Designer.cs">
+      <DependentUpon>IAddMetricPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\IAMenuPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -205,6 +224,31 @@
     <Compile Include="UI\OIMenuPanel.Designer.cs">
       <DependentUpon>OIMenuPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\PersianClass.cs" />
+    <Compile Include="UI\SAAddConventionPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SAAddConventionPanel.Designer.cs">
+      <DependentUpon>SAAddConventionPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SAAddEnvironmentalGoalPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SAAddEnvironmentalGoalPanel.Designer.cs">
+      <DependentUpon>SAAddEnvironmentalGoalPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SAAddEnvironmentalImpactPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SAAddEnvironmentalImpactPanel.Designer.cs">
+      <DependentUpon>SAAddEnvironmentalImpactPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SAAddLegalRequirementPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SAAddLegalRequirementPanel.Designer.cs">
+      <DependentUpon>SAAddLegalRequirementPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SAMenuPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,10 +270,14 @@
     <Compile Include="Users\Role.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserCatalog.cs" />
+    <Compile Include="Users\UserFacade.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AddAssociationPanel.resx">
+      <DependentUpon>AddAssociationPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddPanel.resx">
       <DependentUpon>AddPanel.cs</DependentUpon>
@@ -264,6 +312,12 @@
     <EmbeddedResource Include="UI\IAAddSchedulePanel.resx">
       <DependentUpon>IAAddSchedulePanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\IAddMetricAuditPanel.resx">
+      <DependentUpon>IAddMetricAuditPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\IAddMetricPanel.resx">
+      <DependentUpon>IAddMetricPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\IAMenuPanel.resx">
       <DependentUpon>IAMenuPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +335,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\OIMenuPanel.resx">
       <DependentUpon>OIMenuPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SAAddConventionPanel.resx">
+      <DependentUpon>SAAddConventionPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SAAddEnvironmentalGoalPanel.resx">
+      <DependentUpon>SAAddEnvironmentalGoalPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SAAddEnvironmentalImpactPanel.resx">
+      <DependentUpon>SAAddEnvironmentalImpactPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SAAddLegalRequirementPanel.resx">
+      <DependentUpon>SAAddLegalRequirementPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SAMenuPanel.resx">
       <DependentUpon>SAMenuPanel.cs</DependentUpon>
@@ -319,6 +385,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EMSIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoutImg.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

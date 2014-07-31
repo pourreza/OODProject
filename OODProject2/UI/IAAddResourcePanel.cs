@@ -24,7 +24,7 @@ namespace OODProject_2_.UI
 
             askResource.Location = new Point(300, 50);
             askResource.Text = "نام منبع";
-            askResource.Size= new Size(40,20);
+            askResource.Size = new Size(40, 20);
 
             resourceName.Location = new Point(72, 50);
             resourceName.Size = new Size(200, 20);
@@ -69,23 +69,25 @@ namespace OODProject_2_.UI
 
         private void onRegisterClick(object sender, EventArgs e)
         {
-            int i =0;
+            int i = 0;
             foreach (int indexChecked in resourceType.CheckedIndices)
                 i++;
             if (resourceName.Text.Equals(""))
             {
                 errorLable.Text = "لطفا عنوان منبع را وارد کنید!";
                 errorLable.Show();
-                errorLable.Location = new Point(205,340);
+                errorLable.Location = new Point(205, 340);
                 errorLable.Size = new Size(160, 20);
             }
-            else if (i==0)
+            else if (i == 0)
             {
                 errorLable.Text = "لطفا نوع منبع را وارد کنید!";
                 errorLable.Show();
                 errorLable.Location = new Point(205, 340);
                 errorLable.Size = new Size(160, 20);
-            }else{
+            }
+            else
+            {
 
                 errorLable.Hide();
                 this.Hide();
