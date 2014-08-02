@@ -90,13 +90,13 @@ namespace OODProject_2_.UI
             one1.Click += new System.EventHandler(this.one1_Click);
             one2 = new ToolStripMenuItem("مشاهده اهداف کلان");
             one.DropDownItems.Add(one2);
-            //  one2.Click += new System.EventHandler(this.one2_Click);
+            one2.Click += new System.EventHandler(this.one2_Click);
             one3 = new ToolStripMenuItem("ویرایش اهداف کلان");
             one.DropDownItems.Add(one3);
-            // one3.Click += new System.EventHandler(this.one3_Click);
+            one3.Click += new System.EventHandler(this.one3_Click);
             one4 = new ToolStripMenuItem("حذف اهداف کلان");
             one.DropDownItems.Add(one4);
-            //            one4.Click += new System.EventHandler(this.one4_Click);
+            one4.Click += new System.EventHandler(this.one4_Click);
 
             ToolStripMenuItem two = new ToolStripMenuItem("الزامات زیست محیطی");
             legalRequirement.Items.Add(two);
@@ -105,13 +105,13 @@ namespace OODProject_2_.UI
             two1.Click += new System.EventHandler(this.two1_Click);
             two2 = new ToolStripMenuItem("مشاهده الزامات زیست محیطی");
             two.DropDownItems.Add(two2);
-            //        two2.Click += new System.EventHandler(this.two2_Click);
+            two2.Click += new System.EventHandler(this.two2_Click);
             two3 = new ToolStripMenuItem("ویرایش الزامات زیست محیطی");
             two.DropDownItems.Add(two3);
-            //      two3.Click += new System.EventHandler(this.two3_Click);
+            two3.Click += new System.EventHandler(this.two3_Click);
             two4 = new ToolStripMenuItem("حذف الزامات زیست محیطی");
             two.DropDownItems.Add(two4);
-            //    two4.Click += new System.EventHandler(this.two4_Click);
+            two4.Click += new System.EventHandler(this.two4_Click);
 
             ToolStripMenuItem three = new ToolStripMenuItem("تاثیرات زیست محیطی");
             envImpact.Items.Add(three);
@@ -217,56 +217,41 @@ namespace OODProject_2_.UI
             uf.ChangeMainPanel(new SAAddEnvironmentalGoalPanel());
         }
 
-        /*        private void one2_Click(object sender, EventArgs e)
-                {
-                    uf.ChangeMainPanel(new DetailedViewPanel());
-                }
+        private void one2_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new DetailedViewPanel("اهداف کلان ثبت شده در سامانه به قرار زیر می باشند:","EnvGoals", false, false, uf));
+        }
 
-                private void one3_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-
-                private void one4_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-        */
+        private void one3_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب هدف کلان موردنظر خود از جدول زیر آن را ویرایش کنید:","EnvGoals", true, false, uf));
+        }
+        
+        private void one4_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new DetailedViewPanel("اهداف کلان موردنظر برای حذف را از جدول زیر انتخاب کنید:", "EnvGoals", false, true, uf));
+        }
+        
         private void two1_Click(object sender, EventArgs e)
         {
             uf.ChangeMainPanel(new SAAddLegalRequirementPanel());
         }
-        /*
-                private void two2_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
+        
+        private void two2_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new DetailedViewPanel("الزامات زیست محیطی ثبت شده در سامانه به قرار زیر می باشند:", "LegalRequi", false, false, uf));
+        }
 
-                private void two3_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
+        private void two3_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب الزام زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "LegalRequi", true, false, uf));
+        }
 
-                private void two4_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-        */
+        private void two4_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new DetailedViewPanel("الزامات زیست محیطی موردنظر برای حذف را از جدول زیر انتخاب کنید:", "LegalRequi", false, true, uf));
+        }
+        
         private void three1_Click(object sender, EventArgs e)
         {
             uf.ChangeMainPanel(new SAAddEnvironmentalImpactPanel());

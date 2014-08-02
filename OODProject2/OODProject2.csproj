@@ -74,6 +74,7 @@
     <Compile Include="Audits\Score.cs" />
     <Compile Include="DBFacade.cs" />
     <Compile Include="Docs\Convention.cs" />
+    <Compile Include="Docs\DocFacade.cs" />
     <Compile Include="Docs\EnviromentalGoal.cs" />
     <Compile Include="Docs\EnvironmentalImpact.cs" />
     <Compile Include="Docs\LegalRequirement.cs" />
@@ -128,6 +129,12 @@
     <Compile Include="UI\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\DetailedUpdatePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DetailedUpdatePanel.Designer.cs">
+      <DependentUpon>DetailedUpdatePanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DetailedViewPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +146,12 @@
     </Compile>
     <Compile Include="UI\EMSForm.Designer.cs">
       <DependentUpon>EMSForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FirstViewPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\FirstViewPanel.Designer.cs">
+      <DependentUpon>FirstViewPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\IAAddOpGoalPanel.cs">
       <SubType>UserControl</SubType>
@@ -288,11 +301,17 @@
     <EmbeddedResource Include="UI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\DetailedUpdatePanel.resx">
+      <DependentUpon>DetailedUpdatePanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\DetailedViewPanel.resx">
       <DependentUpon>DetailedViewPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\EMSForm.resx">
       <DependentUpon>EMSForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FirstViewPanel.resx">
+      <DependentUpon>FirstViewPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\IAAddOpGoalPanel.resx">
       <DependentUpon>IAAddOpGoalPanel.cs</DependentUpon>
