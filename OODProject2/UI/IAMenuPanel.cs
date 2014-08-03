@@ -67,7 +67,7 @@ namespace OODProject_2_.UI
             MenuStrip schedule = new MenuStrip();
             MenuStrip report = new MenuStrip();
             MenuStrip logout = new MenuStrip();
-            logoutItem = new ToolStripMenuItem("خروج") { Image = OODProject2.Properties.Resources.LogoutImg };
+            logoutItem = new ToolStripMenuItem("خروج از سامانه") { Image = OODProject2.Properties.Resources.LogoutImg };
             logoutItem.RightToLeft = RightToLeft.No;
             logout.Items.Add(logoutItem);
 
@@ -193,13 +193,13 @@ namespace OODProject_2_.UI
             report.Items.Add(eig);
             eig1 = new ToolStripMenuItem("گزارش روندهای زمانی");
             eig.DropDownItems.Add(eig1);
-            //eig1.Click += new System.EventHandler(this.eig1_Click);
+            eig1.Click += new System.EventHandler(this.eig1_Click);
             eig2 = new ToolStripMenuItem("گزارش اندازه ها و متریک های برنامه اقدام");
             eig.DropDownItems.Add(eig2);
-            //eig2.Click += new System.EventHandler(this.eig2_Click);
+            eig2.Click += new System.EventHandler(this.eig2_Click);
             eig3 = new ToolStripMenuItem("گزارش مستندات و پرونده الکترونیک");
             eig.DropDownItems.Add(eig3);
-            //eig3.Click += new System.EventHandler(this.eig3_Click);
+            eig3.Click += new System.EventHandler(this.eig3_Click);
 
             MenuItems = menus;
 
@@ -436,31 +436,22 @@ namespace OODProject_2_.UI
                     u.ShowDialog();
                     uf.Close();
                 }
+        */
+        private void eig1_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new FirstViewReport(false, uf));
+        }
 
-                private void eig1_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
+        private void eig2_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new FirstMetricReport(uf));
+        }
 
-                private void eig2_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-
-                private void eig3_Click(object sender, EventArgs e)
-                {
-                    uf.Hide();
-                    UserForm u = new UserForm(new MainPanel(), "زیرسامانه مدیریت محیطی", "مریم");
-                    u.ShowDialog();
-                    uf.Close();
-                }
-                */
+        private void eig3_Click(object sender, EventArgs e)
+        {
+            uf.ChangeMainPanel(new FirstViewReport(true, uf));
+        }
+               
         private void logout_Click(object sender, EventArgs e)
         {
             uf.Hide();

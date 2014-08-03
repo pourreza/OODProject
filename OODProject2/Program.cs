@@ -60,16 +60,7 @@ namespace OODProject_2_
                 MessageBox.Show(ex.ToString());
             }*/
             //Application.Run(new UI.UserForm(new UI.Dashboard("SA",true,"شیوا کتابی",jsonData,jsonData2), "زیرسامانه حسابرسی سازمان"));
-            Dictionary<string, List<string>> rel = new Dictionary<string,List<string>>();
-            List<string> t1 = new List<string>();
-            t1.Add("کاهش دی اکسید کربن");
-            t1.Add("کاهش آلودگی");
-            rel.Add("کاهش آلاینده ها", t1);
-            List<string> t2 = new List<string>();
-            t2.Add("کاهش دی اکسید کربن آب");
-            t2.Add("کاهش آلودگی هوا");
-            rel.Add("کاهش بدی ها", t2);
-            string data = JsonConvert.SerializeObject(rel);
+            
 
             Dictionary<string, List<int>> structure = new Dictionary<string, List<int>>();
             List<int> n = new List<int>();

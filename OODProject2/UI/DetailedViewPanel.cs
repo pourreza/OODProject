@@ -27,8 +27,8 @@ namespace OODProject_2_.UI
             this.uf = u;
 
             headerLabel.Text = headerStr;
-            headerLabel.Location = new Point(120, 10);
-            headerLabel.Size = new Size(250, 15);
+            headerLabel.Location = new Point(90, 10);
+            headerLabel.Size = new Size(280, 15);
             InitializeComponent();
 
             content = new DataGridView();
@@ -61,7 +61,7 @@ namespace OODProject_2_.UI
                 DataRow r = ct.NewRow();
                 r[" "] = PersianClass.ToPersianNumber((j + 1).ToString());
                 for (int k = 0; k < countColumns; k++)
-                    r[ct.Columns[k + 1].ColumnName] = data[ct.Columns[k + 1].ColumnName][j];
+                    r[ct.Columns[k + 1].ColumnName] = PersianClass.ToPersianNumber(data[ct.Columns[k + 1].ColumnName][j]);
                 ct.Rows.Add(r);
             }
             
@@ -94,7 +94,7 @@ namespace OODProject_2_.UI
                 chk.Name = "chk";
                 deleteBtn.Show();
             }
-            
+
             this.Controls.Add(content);
             this.Controls.Add(deleteBtn);
         }
@@ -121,20 +121,110 @@ namespace OODProject_2_.UI
                 content.Columns[1].Width = 30;
                 content.Columns[2].Width = 180;
             }
+            if (type.Equals("LegalRequi"))
+            {
+                content.Columns["جریمه تخلف"].Visible = false;
+                content.Columns["توضیح ماده قانونی"].Visible = false;
+                
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                content.Columns.Add(btn);
+                content.Columns[8].DisplayIndex = 4;
+                btn.HeaderText = "جریمه تخلف";
+                btn.Text = "مشاهده";
+                btn.Name = "btn";
+                btn.UseColumnTextForButtonValue = true;
 
+                DataGridViewButtonColumn btn2 = new DataGridViewButtonColumn();
+                content.Columns.Add(btn2);
+                btn2.HeaderText = "توضیح ماده قانونی";
+                btn2.Text = "مشاهده";
+                btn2.Name = "btn";
+                btn2.UseColumnTextForButtonValue = true;
+                content.Columns[9].DisplayIndex = 5;
+
+                content.CellClick += new DataGridViewCellEventHandler(this.content_CellClick);
+            }
+            if (type.Equals("EnvImpacts"))
+            {
+                content.Columns["توضیح"].Visible = false;
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                content.Columns.Add(btn);
+                content.Columns[10].DisplayIndex = 8;
+                btn.HeaderText = "توضیح";
+                btn.Text = "مشاهده";
+                btn.Name = "btn";
+                btn.UseColumnTextForButtonValue = true;
+                content.CellClick += new DataGridViewCellEventHandler(this.content_CellClick);
+            }
+            if (type.Equals("Convention"))
+            {
+                content.Columns["متن میثاق نامه"].Visible = false;
+                DataGridViewButtonColumn btn = new DataGridViewButtonColumn();
+                content.Columns.Add(btn);
+                content.Columns[5].DisplayIndex = 2;
+                btn.HeaderText = "متن میثاق نامه";
+                btn.Text = "مشاهده";
+                btn.Name = "btn";
+                btn.UseColumnTextForButtonValue = true;
+                content.CellClick += new DataGridViewCellEventHandler(this.content_CellClick);
+            }
+            if (type.Contains("Relation"))
+                content.Columns["ارتباطات"].Visible = false;
         }
 
         private void content_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Dictionary<string,string> data = new Dictionary<string,string>();
             for (int i=2; i<content.ColumnCount; i++)
-                data.Add(content.Columns[i].Name, content.Rows[e.RowIndex].Cells[i].Value.ToString());
+                if (!data.ContainsKey(content.Columns[i].Name))
+                    data.Add(content.Columns[i].Name, content.Rows[e.RowIndex].Cells[i].Value.ToString());
             
             string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
             
             if (type.Equals("EnvGoals") && e.ColumnIndex == 0)
             {
                 uf.ChangeMainPanel(new SAAddEnvironmentalGoalPanel(jsonData,uf,(e.RowIndex)));
+            }
+            else if (type.Equals("LegalRequi") && isEditView && e.ColumnIndex == 0 && !isRemoveView)
+            {
+                uf.ChangeMainPanel(new SAAddLegalRequirementPanel(jsonData, uf, (e.RowIndex)));
+            }
+            else if (type.Equals("LegalRequi") && e.ColumnIndex == 1 && ( isEditView || isRemoveView))
+            {
+                uf.ChangeMainPanel(new ViewRichTextBoxPanel("جریمه تخلف الزام قانونی انتخاب شده به شرح زیر است:", data["جریمه تخلف"], uf, isEditView, isRemoveView));
+            }
+            else if (type.Equals("LegalRequi") && e.ColumnIndex == 2 && (isEditView || isRemoveView))
+            {
+                uf.ChangeMainPanel(new ViewRichTextBoxPanel("توضیح ماده قانونی الزام قانونی انتخاب شده به شرح زیر است:", data["توضیح ماده قانونی"], uf, isEditView, isRemoveView));
+            }
+            else if (type.Equals("LegalRequi") && e.ColumnIndex == 0 && !isRemoveView && !isEditView)
+            {
+                uf.ChangeMainPanel(new ViewRichTextBoxPanel("جریمه تخلف الزام قانونی انتخاب شده به شرح زیر است:",data["جریمه تخلف"],uf,isEditView, isRemoveView));
+            }
+            else if (type.Equals("LegalRequi") && e.ColumnIndex == 1 && !isRemoveView)
+            {
+                uf.ChangeMainPanel(new ViewRichTextBoxPanel("توضیح ماده قانونی الزام قانونی انتخاب شده به شرح زیر است:",data["توضیح ماده قانونی"],uf, isEditView, isRemoveView));
+            }
+            else if (type.Equals("EnvImpacts") && isEditView && e.ColumnIndex == 0 && !isRemoveView)
+            {
+                uf.ChangeMainPanel(new SAAddEnvironmentalImpactPanel(jsonData, uf, (e.RowIndex)));
+            }
+            else if (type.Equals("EnvImpacts") && e.ColumnIndex == 0 && !isRemoveView && !isEditView)
+            {
+                uf.ChangeMainPanel(new ViewRichTextBoxPanel("توضیح تاثیر زیست محیطی انتخاب شده به شرح زیر است:", data["توضیح"], uf, isEditView, isRemoveView));
+            }
+            else if (type.Equals("Convention") && isEditView && e.ColumnIndex == 0 && !isRemoveView)
+            {
+                uf.ChangeMainPanel(new SAAddConventionPanel(jsonData, uf, (e.RowIndex)));
+            }
+            else if (type.Equals("Convention") && e.ColumnIndex == 0 && !isRemoveView && !isEditView)
+            {
+                uf.ChangeMainPanel(new ViewRichTextBoxPanel("متن میثاق نامه انتخاب شده به شرح زیر است:", data["متن میثاق نامه"], uf, isEditView, isRemoveView));
+            }
+            else if (type.Contains("Relation") && e.ColumnIndex == 0 && isEditView)
+            {
+                string[] types = (type.Remove(0, 8)).Split('-');
+                uf.ChangeMainPanel(new AddAssociationPanel(uf, (e.RowIndex), types[0], types[1],jsonData)); 
             }
         }
         

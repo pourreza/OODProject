@@ -117,6 +117,12 @@
     <Compile Include="UI\AddPanel.Designer.cs">
       <DependentUpon>AddPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ChartReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ChartReport.Designer.cs">
+      <DependentUpon>ChartReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ConfirmPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -128,6 +134,12 @@
     </Compile>
     <Compile Include="UI\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\DetailedReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\DetailedReport.Designer.cs">
+      <DependentUpon>DetailedReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\DetailedUpdatePanel.cs">
       <SubType>UserControl</SubType>
@@ -147,11 +159,23 @@
     <Compile Include="UI\EMSForm.Designer.cs">
       <DependentUpon>EMSForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FirstMetricReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\FirstMetricReport.Designer.cs">
+      <DependentUpon>FirstMetricReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FirstViewPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\FirstViewPanel.Designer.cs">
       <DependentUpon>FirstViewPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FirstViewReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\FirstViewReport.Designer.cs">
+      <DependentUpon>FirstViewReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\IAAddOpGoalPanel.cs">
       <SubType>UserControl</SubType>
@@ -280,6 +304,12 @@
     <Compile Include="UI\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewRichTextBoxPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\ViewRichTextBoxPanel.Designer.cs">
+      <DependentUpon>ViewRichTextBoxPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\Role.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserCatalog.cs" />
@@ -295,11 +325,17 @@
     <EmbeddedResource Include="UI\AddPanel.resx">
       <DependentUpon>AddPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\ChartReport.resx">
+      <DependentUpon>ChartReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\ConfirmPanel.resx">
       <DependentUpon>ConfirmPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DetailedReport.resx">
+      <DependentUpon>DetailedReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DetailedUpdatePanel.resx">
       <DependentUpon>DetailedUpdatePanel.cs</DependentUpon>
@@ -310,8 +346,14 @@
     <EmbeddedResource Include="UI\EMSForm.resx">
       <DependentUpon>EMSForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FirstMetricReport.resx">
+      <DependentUpon>FirstMetricReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FirstViewPanel.resx">
       <DependentUpon>FirstViewPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FirstViewReport.resx">
+      <DependentUpon>FirstViewReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\IAAddOpGoalPanel.resx">
       <DependentUpon>IAAddOpGoalPanel.cs</DependentUpon>
@@ -375,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ViewRichTextBoxPanel.resx">
+      <DependentUpon>ViewRichTextBoxPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

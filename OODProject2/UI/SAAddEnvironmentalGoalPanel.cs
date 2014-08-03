@@ -108,9 +108,20 @@ namespace OODProject_2_.UI
                 }
                 else
                 {
-                    errorLable.Hide();
-                    this.Hide();
-                    UserForm.Confirm("هدف کلان موردنظر با موفقیت در سیستم به ثبت رسید.");
+                    Dictionary<string, string> data = new Dictionary<string, string>();
+                    data.Add("goal", goalTitle.Text);
+                    string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
+                    bool added = Docs.DocFacade.AddDoc("EnvGoal", jsonData);
+                    if (!added)
+                    {
+                        MessageBox.Show(this, "!هدف کلانی با عنوان مشابه قبلا در سامانه به ثبت رسیده است", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        errorLable.Hide();
+                        this.Hide();
+                        UserForm.Confirm("هدف کلان موردنظر با موفقیت در سیستم به ثبت رسید.");
+                    }
                 }
             }
         }

@@ -49,3 +49,8 @@ C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2
 C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject2.csprojResolveAssemblyReference.cache
 C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject_2_.UI.DetailedUpdatePanel.resources
 C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject_2_.UI.FirstViewPanel.resources
+C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject_2_.UI.ViewRichTextBoxPanel.resources
+C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject_2_.UI.ChartReport.resources
+C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject_2_.UI.DetailedReport.resources
+C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject_2_.UI.FirstMetricReport.resources
+C:\Users\Mpourreza\Documents\Visual Studio 2012\Projects\OODProject2\OODProject2\obj\Debug\OODProject_2_.UI.FirstViewReport.resources

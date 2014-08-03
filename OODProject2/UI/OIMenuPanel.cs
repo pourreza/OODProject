@@ -64,7 +64,7 @@ namespace OODProject_2_.UI
             MenuStrip metricDefine = new MenuStrip();
             MenuStrip metricAudit = new MenuStrip();
             MenuStrip logout = new MenuStrip();
-            logoutItem = new ToolStripMenuItem("خروج") { Image = OODProject2.Properties.Resources.LogoutImg };
+            logoutItem = new ToolStripMenuItem("خروج از سامانه") { Image = OODProject2.Properties.Resources.LogoutImg };
             logoutItem.RightToLeft = RightToLeft.No;
             logout.Items.Add(logoutItem);
             logoutItem.Click += new System.EventHandler(this.logout_Click);

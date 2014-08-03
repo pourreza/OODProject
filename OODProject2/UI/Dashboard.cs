@@ -59,8 +59,8 @@ namespace OODProject_2_.UI
             this.metricChart.Titles.Add("آخرین درصدهای اندازه گیری شده ی متریک ها");
 
             headerLabel.Text = welcome;
-            headerLabel.Location = new Point(70, 10);
-            headerLabel.Size = new Size(310, 18);
+            headerLabel.Location = new Point(30, 10);
+            headerLabel.Size = new Size(350, 18);
 
             envGoalChart.Hide();
             if (!userType.Equals("I"))

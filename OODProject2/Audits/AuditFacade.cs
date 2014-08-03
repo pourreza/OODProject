@@ -41,6 +41,14 @@ namespace OODProject_2_.Audits
             return jsonData2;
         }
 
+        public static string ReportPlan()
+        {
+            return "";
+        }
 
+        public static string ReportDetailPlan(string planTitle)
+        {
+            return "";
+        }
     }
 }
