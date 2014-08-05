@@ -219,17 +219,17 @@ namespace OODProject_2_.UI
 
         private void one2_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("اهداف کلان ثبت شده در سامانه به قرار زیر می باشند:","EnvGoals", false, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("اهداف کلان ثبت شده در سامانه به قرار زیر می باشند:","0EnvGoals", false, false, uf));
         }
 
         private void one3_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب هدف کلان موردنظر خود از جدول زیر آن را ویرایش کنید:","EnvGoals", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب هدف کلان موردنظر خود از جدول زیر آن را ویرایش کنید:","0EnvGoals", true, false, uf));
         }
         
         private void one4_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("اهداف کلان موردنظر برای حذف را از جدول زیر انتخاب کنید:", "EnvGoals", false, true, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("اهداف کلان موردنظر برای حذف را از جدول زیر انتخاب کنید:", "0EnvGoals", false, true, uf));
         }
         
         private void two1_Click(object sender, EventArgs e)
@@ -239,17 +239,17 @@ namespace OODProject_2_.UI
         
         private void two2_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("الزامات زیست محیطی ثبت شده در سامانه به قرار زیر می باشند:", "LegalRequi", false, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("الزامات زیست محیطی ثبت شده در سامانه به قرار زیر می باشند:", "0LegalRequi", false, false, uf));
         }
 
         private void two3_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب الزام زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "LegalRequi", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب الزام زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "0LegalRequi", true, false, uf));
         }
 
         private void two4_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("الزامات زیست محیطی موردنظر برای حذف را از جدول زیر انتخاب کنید:", "LegalRequi", false, true, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("الزامات زیست محیطی موردنظر برای حذف را از جدول زیر انتخاب کنید:", "0LegalRequi", false, true, uf));
         }
         
         private void three1_Click(object sender, EventArgs e)
@@ -259,17 +259,17 @@ namespace OODProject_2_.UI
         
         private void three2_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("تاثیرات زیست محیطی ثبت شده در سامانه به قرار زیر می باشند:", "EnvImpacts", false, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("تاثیرات زیست محیطی ثبت شده در سامانه به قرار زیر می باشند:", "0EnvImpacts", false, false, uf));
         }
 
         private void three3_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب تاثیر زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "EnvImpacts", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب تاثیر زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "0EnvImpacts", true, false, uf));
         }
 
         private void three4_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("تاثیرات زیست محیطی موردنظر برای حذف را از جدول زیر انتخاب کنید:", "EnvImpacts", false, true, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("تاثیرات زیست محیطی موردنظر برای حذف را از جدول زیر انتخاب کنید:", "0EnvImpacts", false, true, uf));
         }
         
         private void four1_Click(object sender, EventArgs e)
@@ -285,7 +285,7 @@ namespace OODProject_2_.UI
         
         private void four3_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("هدف کلان موردنظر خود را برای تغییر در ارتباطات آن انتخاب کنید:", "RelationEnvGoals-LegalRequi", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("هدف کلان موردنظر خود را برای تغییر در ارتباطات آن انتخاب کنید:", "0RelationEnvGoals-LegalRequi", true, false, uf));
         }
         
         private void four4_Click(object sender, EventArgs e)
@@ -307,7 +307,7 @@ namespace OODProject_2_.UI
 
         private void five3_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("قانون موردنظر خود را برای تغییر در ارتباطات آن انتخاب کنید:", "RelationLegalRequi-EnvImpacts", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("قانون موردنظر خود را برای تغییر در ارتباطات آن انتخاب کنید:", "0RelationLegalRequi-EnvImpacts", true, false, uf));
         }
         
         private void five4_Click(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace OODProject_2_.UI
         
         private void six3_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("هدف کلان موردنظر خود را برای تغییر در ارتباطات آن انتخاب کنید:", "RelationEnvGoals-EnvImpacts", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("هدف کلان موردنظر خود را برای تغییر در ارتباطات آن انتخاب کنید:", "0RelationEnvGoals-EnvImpacts", true, false, uf));
         }
         
         private void six4_Click(object sender, EventArgs e)
@@ -345,17 +345,17 @@ namespace OODProject_2_.UI
         
         private void sev2_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("میثاق نامه های ثبت شده در سامانه به قرار زیر می باشند:", "Convention", false, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("میثاق نامه های ثبت شده در سامانه به قرار زیر می باشند:", "0Convention", false, false, uf));
         }
 
         private void sev3_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب میثاق نامه زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "Convention", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب میثاق نامه زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "0Convention", true, false, uf));
         }
 
         private void sev4_Click(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("میثاق نامه های زیست محیطی موردنظر برای حذف را از جدول زیر انتخاب کنید:", "Convention", false, true, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("میثاق نامه های زیست محیطی موردنظر برای حذف را از جدول زیر انتخاب کنید:", "0Convention", false, true, uf));
         }
 
         private void eig1_Click(object sender, EventArgs e)

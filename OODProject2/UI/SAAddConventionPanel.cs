@@ -86,7 +86,7 @@ namespace OODProject_2_.UI
 
         private void onBackClick(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب میثاق نامه زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "Convention", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب میثاق نامه زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "0Convention", true, false, uf));
         }
 
         private void onRegisterClick(object sender, EventArgs e)
@@ -111,7 +111,7 @@ namespace OODProject_2_.UI
                         string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
                         Docs.DocFacade.update("Convention", index, jsonData);
                         MessageBox.Show(this, "!میثاق نامه با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب میثاق نامه زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "Convention", true, false, uf));
+                        uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب میثاق نامه زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "0Convention", true, false, uf));
                     }
                 }
                 else

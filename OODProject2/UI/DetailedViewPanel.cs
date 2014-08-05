@@ -16,6 +16,7 @@ namespace OODProject_2_.UI
         private bool isEditView = false;
         private bool isRemoveView = false;
         private string type = "";
+        private int subsystem = 0;
         private Button deleteBtn = new Button();
         private UserForm uf;
 
@@ -23,7 +24,7 @@ namespace OODProject_2_.UI
         {
             this.isEditView = isEditView;
             this.isRemoveView = isRemoveView;
-            this.type = type;
+            this.type = type.Remove(0, 1) ;
             this.uf = u;
 
             headerLabel.Text = headerStr;
@@ -42,7 +43,17 @@ namespace OODProject_2_.UI
             DataTable ct = new DataTable();
             ct.Columns.Add(" ");
             
-            string d = Docs.DocFacade.ViewDocs(type);
+            string d = "";
+            if (type[0] == '0')
+                d = Docs.DocFacade.ViewDocs(this.type);
+            else if (type[0] == '1')
+            {
+                d = Plannings.PlanningFacade.ViewDocs(this.type);
+                subsystem = 1;
+            }
+            else
+                subsystem = 2;
+
             Dictionary<string, List<string>> data = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, List<string>>>(d);
 
             int countColumns = 0;
@@ -226,6 +237,14 @@ namespace OODProject_2_.UI
                 string[] types = (type.Remove(0, 8)).Split('-');
                 uf.ChangeMainPanel(new AddAssociationPanel(uf, (e.RowIndex), types[0], types[1],jsonData)); 
             }
+            else if (type.Equals("Resources") && e.ColumnIndex == 0 && isEditView)
+            {
+                uf.ChangeMainPanel(new IAAddResourcePanel(jsonData, uf, (e.RowIndex)));
+            }
+            else if (type.Equals("OpGoals") && e.ColumnIndex == 0 && isEditView)
+            {
+                uf.ChangeMainPanel(new IAAddOpGoalPanel(jsonData, uf, (e.RowIndex)));
+            }
         }
         
         private void onDeleteClick(object sender, EventArgs e)
@@ -248,7 +267,11 @@ namespace OODProject_2_.UI
          MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
          == DialogResult.Yes)
             {
-                Docs.DocFacade.deleteDocs(type, indexes);
+                if (subsystem == 0)
+                    Docs.DocFacade.deleteDocs(type, indexes);
+                else if (subsystem == 1)
+                    Plannings.PlanningFacade.DeleteDocs(type, indexes);
+
                 UserForm.Confirm("اطلاعات موردنظر با موفقیت از سیستم حذف گردیدند.");
             }
             

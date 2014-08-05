@@ -333,7 +333,7 @@ namespace OODProject_2_.UI
 
         private void onBackClick(object sender, EventArgs e)
         {
-            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب تاثیر زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "EnvImpacts", true, false, uf));
+            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب تاثیر زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "0EnvImpacts", true, false, uf));
         }
 
         private void onRegisterClick(object sender, EventArgs e)
@@ -425,7 +425,7 @@ namespace OODProject_2_.UI
                         string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
                         Docs.DocFacade.update("EnvImpacts", index, jsonData);
                         MessageBox.Show(this, "!تاثیر زیست محیطی با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب تاثیر زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "EnvImpacts", true, false, uf));
+                        uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب تاثیر زیست محیطی موردنظر خود از جدول زیر آن را ویرایش کنید:", "0EnvImpacts", true, false, uf));
                     }
                 }
                 else

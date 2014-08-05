@@ -96,6 +96,7 @@
     <Compile Include="Plannings\OperationalGoal.cs" />
     <Compile Include="Plannings\OrganizationalUnit.cs" />
     <Compile Include="Plannings\Plan.cs" />
+    <Compile Include="Plannings\PlanningFacade.cs" />
     <Compile Include="Plannings\Resource.cs" />
     <Compile Include="Plannings\Responsibility.cs" />
     <Compile Include="Program.cs" />

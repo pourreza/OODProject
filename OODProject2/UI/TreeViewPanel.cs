@@ -142,8 +142,16 @@ namespace OODProject_2_.UI
          MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
          == DialogResult.Yes)
             {
-                Docs.DocFacade.DeleteRelations(type, checkedNodes);
-                UserForm.Confirm("اطلاعات موردنظر با موفقیت از سیستم حذف گردیدند.");
+                if (relationOrStructure)
+                {
+                    Docs.DocFacade.DeleteRelations(type, checkedNodes);
+                    UserForm.Confirm("ارتباطات موردنظر با موفقیت از سیستم حذف گردیدند.");
+                }
+                else
+                {
+                    Plannings.PlanningFacade.DeleteOrganizationalUnits(checkedNodes);
+                    UserForm.Confirm("اجزاء سازمانی موردنظر به همراه زیر جزءهایشان با موفقیت از سیستم حذف گردیدند.");
+                }
             }
             
         }

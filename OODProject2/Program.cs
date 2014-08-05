@@ -16,12 +16,14 @@ namespace OODProject_2_
         [STAThread]
         static void Main()
         {
-           // System.Threading.Thread.CurrentThread.CurrentCulture = new FarsiLibrary.Utils.PersianCultureInfo();
+            //System.Threading.Thread.CurrentThread.CurrentCulture = new FarsiLibrary.Utils.PersianCultureInfo();
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new FarsiLibrary.Utils.PersianCultureInfo();
-            
-            System.Globalization.CultureInfo language = new System.Globalization.CultureInfo("fa-ir");
-
-            InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(language);
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fa-IR");
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("fa-IR");
+            //System.Globalization.CultureInfo language = new System.Globalization.CultureInfo("fa-ir");
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(language);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Dictionary<string,int> js = new Dictionary<string,int>();
