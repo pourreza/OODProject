@@ -9,7 +9,7 @@ namespace OODProject_2_.models
     {
         void AddDoc(DocInterface newDoc);
         void RemoveDocs(List<DocInterface> removeDocs);
-        void ViewDocs();
+        List <DocInterface> ViewDocs();
         void UpdateDocs();
         void ViewReport();
     }

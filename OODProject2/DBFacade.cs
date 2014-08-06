@@ -11,19 +11,26 @@ namespace OODProject2
 {
     class DBFacade
     {
-        public void insert(Object record, short tableType)
+        public static void insert(Object record, string tableType)
         {
 
-            using (var db = new DataBase())
+            using (var db = new DataBaseTables())
             {
-                Console.WriteLine("Inserting");
+               // Console.WriteLine("Inserting");
 
                 switch (tableType)
                 {
-                    case 1:
-                        db.Conventions.Add((Convention)record);
+                    case "EnvGoals":
+                        db.EnviromentalGoals.Add((EnviromentalGoal)record);
                         break;
-                    case 2:
+                    case "LegalRequi":
+                        db.LegalRequirements.Add((LegalRequirement)record);
+                        break;
+                    case "EnvImpacts":
+                        db.EnvironmentalImpacts.Add((EnvironmentalImpact)record);
+                        break;
+                    case "Convention":
+                        db.Conventions.Add((Convention)record);
                         break;
                     default:
                         break;
@@ -31,50 +38,68 @@ namespace OODProject2
                 db.SaveChanges();
             }
         }
-        public List<Object> select(short tableType)
+        public static List<DocInterface> select(string tableType)
         {
-            List<Object> result = new List<object>();
-            Console.WriteLine("Selecting");
-            using (var db = new DataBase())
+            List<DocInterface> result = new List<DocInterface>();
+            //Console.WriteLine("Selecting");
+            using (var db = new DataBaseTables())
             {
-                var query = from c in db.Conventions
-                            select c;
+                
                 switch (tableType)
                 {
 
-                    case 1:
-                        query = from c in db.Conventions
+                    case "EnvGoals":
+                        var queryGoal = from c in db.EnviromentalGoals
                                 select c;
+                        foreach (var item in queryGoal)
+                        {
+                            result.Add(item);
+                        }
                         break;
-                    case 2:
-                        query = from c in db.Conventions
+                    case "LegalRequi":
+                        var queryRequi = from c in db.LegalRequirements
                                 select c;
+                        foreach (var item in queryRequi)
+                        {
+                            result.Add(item);
+                        }
+                        break;
+                    case "EnvImpacts":
+                        var queryImp = from c in db.EnvironmentalImpacts
+                                       select c;
+                        foreach (var item in queryImp)
+                        {
+                            result.Add(item);
+                        }
+                        break;
+                    case "Convention":
+                        var queryConv = from c in db.Conventions
+                                       select c;
+                        foreach (var item in queryConv)
+                        {
+                            result.Add(item);
+                        }
                         break;
                     default:
                         break;
                 }
-                foreach (var item in query)
-                {
-                    result.Add(item);
-                }
 
                 return result;
-
             }
 
         }
-        public void update(List<NormalDoc> records, short tableType)
+        public static void update(List<NormalDoc> records, short tableType)
         {
             List<int> deletedList = new List<int>();
             foreach (NormalDoc r in records)
                 deletedList.Add(r.NormalDocId);
-            this.delete(deletedList, 1);
+            delete(deletedList, 1);
             foreach (NormalDoc r in records)
-                this.insert(r, 1);
+                insert(r, "Convention");
         }
-        public void delete(List<int> recordIds, short tableType)
+        public static void delete(List<int> recordIds, short tableType)
         {
-            using (var db = new DataBase())
+            using (var db = new DataBaseTables())
             {
                 Console.WriteLine("Deleting");
 
@@ -106,37 +131,4 @@ namespace OODProject2
         }
     }
 
-   public class DataBase : System.Data.Entity.DbContext
-    {
-        //Docs package tables
-        public DbSet<Convention> Conventions { get; set; }
-     /*   protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Convention>().Property(a => a.NormalDocId).HasKey(b => b.TrNo);
-
-        }*/
-       // public DbSet<EnviromentalGoal> EnviromentalGoals { get; set; }
-       public DbSet<EnvironmentalImpact> EnvironmentalImpacts { get; set; }
-       /* public DbSet<LegalRequirement> LegalRequirements { get; set; }
-
-
-        //Plannings package tables
-        public DbSet<OperationalGoal> OperationalGoals { get; set; }
-        public DbSet<OrganizationalUnit> OrganizationalUnits { get; set; }
-        public DbSet<Plan> Plans { get; set; }
-        public DbSet<Resource> Resources { get; set; }
-        public DbSet<Responsibility> Responsibilities { get; set; }
-
-
-        //Audits package tables
-        public DbSet<OperationalScore> OperationalScores { get; set; }
-        public DbSet<PercentageScore> PercentageScores { get; set; }
-        public DbSet<PhysicalScore> PhysicalScores { get; set; }
-
-
-        //Users package tables
-        public DbSet<User> Users { get; set; }
-        public DbSet<Role> Roles { get; set; }*/
- 
-    }
 }

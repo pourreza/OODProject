@@ -18,8 +18,9 @@ namespace OODProject_2_.models
         {
         }
 
-        public void ViewDocs()
+        public List<DocInterface> ViewDocs()
         {
+            return new List<DocInterface>();
         }
 
         public void UpdateDocs()

@@ -14,6 +14,7 @@ namespace OODProject_2_.models
 
         public void View()
         {
+            
         }
 
         public void Update()

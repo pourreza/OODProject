@@ -1,4 +1,5 @@
 ﻿using OODProject_2_.Audits;
+using OODProject2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,18 +9,20 @@ namespace OODProject_2_.models
 {
     public class AuditableCatalog: CatalogInterface
     {
-        public List<DocInterface> Docs { get; private set; }
+        public string Type { get; set; }
 
         public void AddDoc(DocInterface newDoc)
         {
+            DBFacade.insert(newDoc, Type);
         }
 
         public void RemoveDocs(List<DocInterface> removeDocs)
         {
         }
 
-        public void ViewDocs()
+        public List<DocInterface> ViewDocs()
         {
+            return DBFacade.select(Type);
         }
 
         public void UpdateDocs()

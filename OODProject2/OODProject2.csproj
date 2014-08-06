@@ -72,6 +72,7 @@
     <Compile Include="Audits\PercentageScore.cs" />
     <Compile Include="Audits\PhysicalScore.cs" />
     <Compile Include="Audits\Score.cs" />
+    <Compile Include="DataBaseTables.cs" />
     <Compile Include="DBFacade.cs" />
     <Compile Include="Docs\Convention.cs" />
     <Compile Include="Docs\DocFacade.cs" />
