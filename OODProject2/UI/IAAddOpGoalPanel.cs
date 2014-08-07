@@ -110,28 +110,38 @@ namespace OODProject_2_.UI
                 errorLable.Text = "لطفا عنوان هدف اجرایی را وارد کنید!";
                 errorLable.Show();
             }
+            else if ((FarsiLibrary.Utils.PersianDate.Now).CompareTo(FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(date.SelectedDateTime)) > 0)
+            {
+                errorLable.Text = "موعد هدف اجرایی نباید زمانی قبل از امروز باشد!";
+                errorLable.Show();
+            }
             else
             {
                 if (isEdit)
                 {
-                    if(ntitle.Equals(goalTitle.Text) && date.SelectedDateTime.Equals(FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(Convert.ToDateTime(ndate))))
+                    if (ntitle.Equals(goalTitle.Text) && date.SelectedDateTime.Equals(FarsiLibrary.Utils.PersianDateConverter.ToPersianDate(Convert.ToDateTime(ndate))))
                         MessageBox.Show(this, "!تغییری روی هدف اجرایی صورت نگرفته است", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     else
                     {
                         Dictionary<string, string> data = new Dictionary<string, string>();
                         data.Add("title", goalTitle.Text);
-                        data.Add("date", date.SelectedDateTime.ToString());
+                        data.Add("date", date.SelectedDateTime.ToShortTimeString());
                         string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
-                        Plannings.PlanningFacade.Update("OpGoals", index, jsonData);
-                        MessageBox.Show(this, "!هدف اجرایی با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        uf.ChangeMainPanel(new DetailedViewPanel("هدف اجرایی موردنظر خود را برای ویرایش از لیست زیر انتخاب کنید:", "1OpGoals", true, false, uf));
+                        bool isUpdated = Plannings.PlanningFacade.Update("OpGoals", index, jsonData);
+                        if (!isUpdated)
+                            MessageBox.Show(this, "!هدفی با عنوان یکسان قبلا در سامانه به ثبت رسیده است", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            MessageBox.Show(this, "!هدف اجرایی با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            uf.ChangeMainPanel(new DetailedViewPanel("هدف اجرایی موردنظر خود را برای ویرایش از لیست زیر انتخاب کنید:", "1OpGoals", true, false, uf));
+                        }
                     }
                 }
                 else
                 {
                     Dictionary<string, string> data = new Dictionary<string, string>();
                     data.Add("title", goalTitle.Text);
-                    data.Add("date", date.SelectedDateTime.ToString());
+                    data.Add("date", date.SelectedDateTime.ToShortTimeString());
                     string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
                     bool added = Plannings.PlanningFacade.AddDoc("OpGoals", jsonData);
                     if (!added)

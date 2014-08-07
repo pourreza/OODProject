@@ -220,9 +220,14 @@ namespace OODProject_2_.UI
                         data.Add("number", resourceNumber.Value.ToString());
                         data.Add("type", checkedBtn);
                         string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
-                        Plannings.PlanningFacade.Update("Resources", index, jsonData);
-                        MessageBox.Show(this, "!منبع با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب منبع موردنظر خود از جدول زیر آن را ویرایش کنید:", "1Resources", true, false, uf));
+                        bool isUpdated = Plannings.PlanningFacade.Update("Resources", index, jsonData);
+                        if (!isUpdated)
+                            MessageBox.Show(this, "!منبعی با عنوان یکسان قبلا در سامانه به ثبت رسیده است", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            MessageBox.Show(this, "!منبع با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            uf.ChangeMainPanel(new DetailedViewPanel("با انتخاب منبع موردنظر خود از جدول زیر آن را ویرایش کنید:", "1Resources", true, false, uf));
+                        }
                     }
                 }
                 else

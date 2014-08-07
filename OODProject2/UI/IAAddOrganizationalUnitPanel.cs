@@ -182,9 +182,14 @@ namespace OODProject_2_.UI
                         data.Add("title", orgName.Text);
                         data.Add("parent", pr);
                         string jsonData = Newtonsoft.Json.JsonConvert.SerializeObject(data);
-                        Plannings.PlanningFacade.Update("OrgUnits", index, jsonData);
-                        MessageBox.Show(this, "!جزء سازمانی با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        uf.ChangeMainPanel(new DetailedViewPanel("جزء سازمانی موردنظر برای ویرایش را از لیست زیر انتخاب کنید:", "1OrgUnits", true, false, uf));
+                        bool isUpdated = Plannings.PlanningFacade.Update("OrgUnits", index, jsonData);
+                        if (!isUpdated)
+                            MessageBox.Show(this, "!واحد سازمانی ای با عنوان یکسان قبلا در سامانه به ثبت رسیده است", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                        {
+                            MessageBox.Show(this, "!جزء سازمانی با موفقیت تغییر یافت", "!توجه", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            uf.ChangeMainPanel(new DetailedViewPanel("جزء سازمانی موردنظر برای ویرایش را از لیست زیر انتخاب کنید:", "1OrgUnits", true, false, uf));
+                        }
                     }
                 }
                 else{

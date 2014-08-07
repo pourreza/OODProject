@@ -1,0 +1,7 @@
+*.sln
+*.suo
+*.pdb
+*.exe
+*.cache
+*.csproj
+*.idc

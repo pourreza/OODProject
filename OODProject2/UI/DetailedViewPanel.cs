@@ -245,6 +245,18 @@ namespace OODProject_2_.UI
             {
                 uf.ChangeMainPanel(new IAAddOpGoalPanel(jsonData, uf, (e.RowIndex)));
             }
+            else if (type.Equals("Responsibilities") && e.ColumnIndex == 0 && isEditView)
+            {
+                uf.ChangeMainPanel(new IAAddResponsibilityPanel(jsonData, uf, (e.RowIndex)));
+            }
+            else if (type.Equals("Plans") && e.ColumnIndex == 0 && isEditView)
+            {
+                uf.ChangeMainPanel(new IAAddPlanPanel(jsonData, uf, (e.RowIndex)));
+            }
+            else if (type.Equals("Schedules") && e.ColumnIndex == 0 && isEditView)
+            {
+                uf.ChangeMainPanel(new IAAddSchedulePanel(jsonData, uf, (e.RowIndex)));
+            }
         }
         
         private void onDeleteClick(object sender, EventArgs e)
