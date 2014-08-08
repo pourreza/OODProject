@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
 namespace OODProject_2_.models
 {
-   
-    public interface DocInterface
+    
+    public abstract class DocInterface
     {
-        void View();
-        void Update();
+        public string LastEditor { get; set; }
+        public DateTime LastEditDate { get; set; }
+        [Key]
+        public int DocId { get; set; }
+        //void  View();
+        //void Update();
     }
 }

@@ -11,9 +11,12 @@ namespace OODProject_2_.models
     {
         public string Type { get; set; }
 
-        public void AddDoc(DocInterface newDoc)
+        public bool AddDoc(DocInterface newDoc)
         {
-            DBFacade.insert(newDoc, Type);
+            if (DocDBFacade.find(Type, ((AuditableDoc)newDoc).Title)!=null)
+                return false;
+            DocDBFacade.insert(newDoc, Type);
+            return true;
         }
 
         public void RemoveDocs(List<DocInterface> removeDocs)
@@ -22,13 +25,16 @@ namespace OODProject_2_.models
 
         public List<DocInterface> ViewDocs()
         {
-            return DBFacade.select(Type);
+            return DocDBFacade.select(Type);
         }
 
         public void UpdateDocs()
         {
         }
-
+        public DocInterface getDetails(string searchString)
+        {
+            return DocDBFacade.find(Type, searchString);
+        }
         public void ViewReport()
         {
         }

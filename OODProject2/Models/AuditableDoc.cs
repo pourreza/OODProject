@@ -9,12 +9,12 @@ namespace OODProject_2_.models
 {
     public class AuditableDoc: DocInterface
     {
-        public string LastEditor { get; set; }
-        public DateTime LastEditDate { get; set; }
+        //public string LastEditor { get; set; }
+        //public DateTime LastEditDate { get; set; }
         public List<Score> Scores { get; private set; }
         public string Title { get; set; }
-        [Key]
-        public int NormalDocId { get; set; }
+        //[Key]
+        //public int NormalDocId { get; set; }
         public void View() 
         { 
         }

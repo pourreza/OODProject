@@ -7,7 +7,7 @@ namespace OODProject_2_.models
 {
     public interface CatalogInterface
     {
-        void AddDoc(DocInterface newDoc);
+        bool AddDoc(DocInterface newDoc);
         void RemoveDocs(List<DocInterface> removeDocs);
         List <DocInterface> ViewDocs();
         void UpdateDocs();

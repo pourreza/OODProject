@@ -9,11 +9,12 @@ namespace OODProject_2_.models
 {
     public class NormalDoc: DocInterface
     {
-        public string LastEditor { get; set; }
-        public DateTime LastEditDate { get; set; }
-        [Key]
-        public int NormalDocId { get; set;}
+        //public string LastEditor { get; set; }
+        //public DateTime LastEditDate { get; set; }
+        //[Key]
+        //public int NormalDocId { get; set;}
 
+        public string Title { get; set; }
         public void View()
         {
         }

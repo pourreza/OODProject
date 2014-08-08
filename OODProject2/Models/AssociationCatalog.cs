@@ -1,25 +1,28 @@
-﻿using System;
+﻿using OODProject2;
+using OODProject2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace OODProject_2_.models
 {
-    public class AssociationCatalog: CatalogInterface
+    public class AssociationCatalog
     {
-        public List<DocInterface> Docs { get; private set; }
+        public string Type { get; set; }
 
         public void AddDoc(DocInterface newDoc)
         {
+            DocDBFacade.insert( newDoc,"RelationLegalRequi-EnvImpacts");
         }
 
         public void RemoveDocs(List<DocInterface> removeDocs)
         {
         }
 
-        public List<DocInterface> ViewDocs()
+        public List<AssociationDoc> ViewDocs()
         {
-            return new List<DocInterface>();
+            return DocDBFacade.selectRel(Type);
         }
 
         public void UpdateDocs()

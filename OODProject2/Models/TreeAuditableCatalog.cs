@@ -10,8 +10,9 @@ namespace OODProject_2_.models
     {
         public List<DocInterface> Docs { get; private set; }
 
-        public void AddDoc(DocInterface newDoc)
+        public bool AddDoc(DocInterface newDoc)
         {
+            return true;
         }
 
         public void RemoveDocs(List<DocInterface> removeDocs)
