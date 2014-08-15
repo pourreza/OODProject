@@ -13,7 +13,7 @@ namespace OODProject_2_.models
         public DateTime LastEditDate { get; set; }
         [Key]
         public int DocId { get; set; }
-        //void  View();
-        //void Update();
+        
+
     }
 }

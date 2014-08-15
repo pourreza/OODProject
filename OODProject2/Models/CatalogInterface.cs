@@ -8,9 +8,9 @@ namespace OODProject_2_.models
     public interface CatalogInterface
     {
         bool AddDoc(DocInterface newDoc);
-        void RemoveDocs(List<DocInterface> removeDocs);
+        void RemoveDocs(List<int> removeDocs);
         List <DocInterface> ViewDocs();
-        void UpdateDocs();
+        bool UpdateDocs(int index, DocInterface updatedDoc);
         void ViewReport();
     }
 }

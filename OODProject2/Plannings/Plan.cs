@@ -8,10 +8,12 @@ namespace OODProject_2_.Plannings
 {
     public class Plan : NormalDoc
     {
-        public OperationalGoal OperationalGoal { get; private set; }
-        public List<Responsibility> Responsibilities { get; private set; }
-        public List<Resource> Resources { get; private set; }
-        public DateTime DueTime { get; set; }
+        public virtual OperationalGoal OperationalGoal { get; set; }
+        public virtual int OperationalGoalId { get; set; }
+
+        public virtual List<Responsibility> Responsibilities { get; set; }
+        public virtual List<Resource> Resources { get; set; }
+        //public DateTime DueTime { get; set; }
 
         public void AddResponsibility(Responsibility res)
         {
@@ -32,6 +34,7 @@ namespace OODProject_2_.Plannings
         public void RemoveSchedule()
         {
         }
+
 
         public void ViewSchedule()
         {

@@ -6,14 +6,14 @@ using System.Text;
 
 namespace OODProject_2_.Plannings
 {
-    public enum ResourceType { Financial, Equipment, Materials };
+    public enum ResourceType { مالی, تجهیزات, مواد };
 
     public class Resource : NormalDoc
     {
-        public string Name { get; set; }
-        public int Count { get; private set; }
+        public int Count { get;  set; }
         public ResourceType Type { get; set; }
-
+        public virtual List<Plan> Plans { get; set; }
+        
         public void update()
         {
         }

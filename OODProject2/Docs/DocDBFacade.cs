@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using OODProject2.Docs;
+using OODProject_2_.Plannings;
 
 namespace OODProject2
 {
@@ -30,8 +31,6 @@ namespace OODProject2
 
             using (var db = new DataBaseTables())
             {
-               // Console.WriteLine("Inserting");
-
                 switch (tableType)
                 {
                     case TypeEnvGoals:
@@ -52,9 +51,10 @@ namespace OODProject2
                         foreach (string l in AssGoalRequi.RelatedDocs)
                         {
                             var LegalRequi = (LegalRequirement)find(TypeLegalRequi, l);
-                            
-                            db.AssosGoalRequi.Add(new GoalRequirementAssociation { LastEditDate = AssGoalRequi.LastEditDate, LastEditor = AssGoalRequi.LastEditor, 
-                               RelatedId = LegalRequi.DocId, MainId = LegalRequi.DocId});
+                            GoalRequirementAssociation a = new GoalRequirementAssociation { LastEditDate = AssGoalRequi.LastEditDate, LastEditor = AssGoalRequi.LastEditor, 
+                               RelatedId = LegalRequi.DocId, RelatedDoc = LegalRequi, MainId = GoalRequi.DocId, MainDoc = GoalRequi};
+                            db.AssosGoalRequi.Attach(a);
+                            db.AssosGoalRequi.Add(a);
                            
                         }
                         break;
@@ -64,9 +64,10 @@ namespace OODProject2
                         foreach (string l in AssGoalImpact.RelatedDocs)
                         {
                             var EnvImpact = (EnvironmentalImpact)find(TypeEnvImpacts, l);
-                            
-                            db.AssosGoalImpact.Add(new GoalImpactAssociation { LastEditDate = AssGoalImpact.LastEditDate, LastEditor = AssGoalImpact.LastEditor, 
-                                RelatedId = EnvImpact.DocId, MainId = GoalImpact.DocId});
+                            GoalImpactAssociation a = new GoalImpactAssociation { LastEditDate = AssGoalImpact.LastEditDate, LastEditor = AssGoalImpact.LastEditor, 
+                                RelatedId = EnvImpact.DocId, RelatedDoc = EnvImpact, MainId = GoalImpact.DocId, MainDoc = GoalImpact};
+                            db.AssosGoalImpact.Attach(a);
+                            db.AssosGoalImpact.Add(a);
                            
                         }
                         break;
@@ -76,12 +77,24 @@ namespace OODProject2
                         foreach (string l in AssRequiImpact.RelatedDocs)
                         {
                             var EnvImpact = (EnvironmentalImpact)find(TypeEnvImpacts, l);
-                            
-                            db.AssosRequiImpact.Add(new RequirementImpactAssociation { LastEditDate = AssRequiImpact.LastEditDate, LastEditor = AssRequiImpact.LastEditor, 
-                                RelatedId = EnvImpact.DocId, MainId = EnvRequi.DocId});
-                            
+                            RequirementImpactAssociation a = new RequirementImpactAssociation { LastEditDate = AssRequiImpact.LastEditDate, LastEditor = AssRequiImpact.LastEditor, 
+                                RelatedId = EnvImpact.DocId, RelatedDoc = EnvImpact, MainId = EnvRequi.DocId, MainDoc = EnvRequi};
+                            db.AssosRequiImpact.Attach(a);
+                            db.AssosRequiImpact.Add(a);
                         }
-                       
+                        break;
+                    case TypeRelEnvGoalOpGoal:
+                        AssociationDoc AssEnvOpGoal = (AssociationDoc)record;
+                        var EnvOpGoal = (EnviromentalGoal)find(TypeEnvGoals, AssEnvOpGoal.MainDoc);
+                        foreach (string l in AssEnvOpGoal.RelatedDocs)
+                        {
+                            var OpGoal = (OperationalGoal)find("OpGoals", l);
+                            GoalsAssociation a = new GoalsAssociation { LastEditDate = AssEnvOpGoal.LastEditDate, LastEditor = AssEnvOpGoal.LastEditor, 
+                                RelatedId = OpGoal.DocId, RelatedDoc = OpGoal, MainId = EnvOpGoal.DocId, MainDoc =EnvOpGoal};
+                            db.AssosGoals.Attach(a);
+                            db.AssosGoals.Add(a);
+                           
+                        }
                         break;
                     default:
                         MessageBox.Show("Error!");
@@ -267,47 +280,8 @@ namespace OODProject2
             }
 
         }
-        public static void update(List<NormalDoc> records, short tableType)
-        {
-           /* List<int> deletedList = new List<int>();
-            foreach (NormalDoc r in records)
-                deletedList.Add(r.);
-            delete(deletedList, TypeConvention);
-            foreach (NormalDoc r in records)
-                insert(r, TypeConvention);*/
-        }
-        public static void delete(List<int> recordIds,string tableType)
-        {
-            using (var db = new DataBaseTables())
-            {
-               // Console.WriteLine("Deleting");
 
-                foreach (int rId in recordIds)
-                {
-                    var result = from r in db.LegalRequirements where r.DocId == rId select r;
-
-                    if (result.Count() > 0)
-                    {
-                        //  foreach (Convention conv in result)
-                        //{
-                       // switch (tableType)
-                        //{
-                          //  case 1:
-                                db.LegalRequirements.Remove(result.First());
-                            //    break;
-                            //case 2:
-                              //  break;
-                            //default:
-                              //  break;
-                      //  }
-
-                        //Console.Write("delete shod");
-                        //}
-                    }
-                    db.SaveChanges();
-                }
-            }
-        }
+        
     }
 
 }

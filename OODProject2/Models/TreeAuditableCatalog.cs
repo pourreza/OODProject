@@ -15,7 +15,7 @@ namespace OODProject_2_.models
             return true;
         }
 
-        public void RemoveDocs(List<DocInterface> removeDocs)
+        public void RemoveDocs(List<int> removeDocs)
         {
         }
 
@@ -24,8 +24,9 @@ namespace OODProject_2_.models
             return new List<DocInterface>();
         }
 
-        public void UpdateDocs()
+        public bool UpdateDocs(int index, DocInterface updatedDoc)
         {
+            return true;
         }
 
         public void ViewReport()

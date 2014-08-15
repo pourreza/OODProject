@@ -53,3 +53,4 @@ C:\Users\SONY\Documents\GitHub\OODProject\OODProject2\bin\Debug\Newtonsoft.Json.
 C:\Users\SONY\Documents\GitHub\OODProject\OODProject2\bin\Debug\Newtonsoft.Json.xml
 C:\Users\SONY\Documents\GitHub\OODProject\OODProject2\obj\Debug\OODProject2.exe
 C:\Users\SONY\Documents\GitHub\OODProject\OODProject2\obj\Debug\OODProject2.pdb
+C:\Users\SONY\Documents\GitHub\OODProject\OODProject2\obj\Debug\OODProject2.csprojResolveAssemblyReference.cache

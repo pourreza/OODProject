@@ -8,10 +8,14 @@ namespace OODProject_2_.Plannings
 {
     public class OrganizationalUnit : AuditableDoc
     {
-        public List<Responsibility> Responsibilities { get; private set; }
-        public OrganizationalUnit ParentUnit { get; private set; }
-        public List<OrganizationalUnit> ChildrenUnits { get; private set; }
+        //public virtual List<Responsibility> Responsibilities { get; set; }
+       
+        //public ICollection<OrganizationalUnit> ChildrenUnits { get;set; }
 
+        /*public List<int> FindList()
+        {
+            return new List<int>();
+        }*/
         public void AddResponsibility(Responsibility responsibility)
         {
         }
